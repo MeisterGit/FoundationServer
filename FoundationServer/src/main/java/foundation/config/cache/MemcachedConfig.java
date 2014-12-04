@@ -18,13 +18,13 @@ import de.javakaffee.web.msm.MemcachedBackupSessionManager;
 @EnableCaching
 public class MemcachedConfig
 {
-	/*
+	
 	@Bean
 	public CacheManager cacheManager() {
 		SimpleCacheManager cacheManager = new SimpleCacheManager();
 		cacheManager.setCaches(Arrays.asList(new ConcurrentMapCache("default")));
 		return cacheManager;
-	}*/
+	}
 	
 	@Bean
 	public EmbeddedServletContainerFactory tomcat() {
