@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.drizzle</groupId>
-	<artifactId>drizzle-server</artifactId>
+	<groupId>com.foundation</groupId>
+	<artifactId>foundation-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>DrizzleServer</name>
-	<description>Drizzle Server Implementation</description>
+	<name>Foundation Server</name>
+	<description>Foundation Server Implementation</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -19,10 +19,11 @@
 	</parent>
 
 	<dependencies>
+		<!-- 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
-		</dependency>
+		</dependency>-->
 		 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -32,10 +33,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
+		</dependency>-->
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -46,6 +48,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+	        <groupId>org.springframework.webflow</groupId>
+	        <artifactId>spring-webflow</artifactId>
+	        <version>2.4.0.RELEASE</version>
+		</dependency>
+		<dependency> <!-- MySQL connector used by Hibernate -->
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
@@ -53,12 +60,54 @@
 		  <groupId>de.javakaffee.msm</groupId>
 		  <artifactId>memcached-session-manager-tc8</artifactId>
 		  <version>1.8.2</version>
-		</dependency> 
+		</dependency>
+		
+		<!-- JSF Dependencies -->
+		<!-- 
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-api</artifactId>
+			<version>2.2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-impl</artifactId>
+			<version>2.2.6</version>
+		</dependency>-->
+		<!-- 
+			In order to do remove web.xml and faces-config.xml, we need to allow JSF to be configured with Java.
+			To do this, JSF requires Jasper's ConfigureListener. This is used when Application.java runs to configure JSF automatically.
+		 -->
+		<dependency> 
+		    <groupId>org.apache.tomcat.embed</groupId>
+		    <artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		
+		<!-- OPTION: Mojarra JSF Implementation -->
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>2.2.6</version>
+		</dependency>
+		
+		<!-- PrettyFaces -->
+		<dependency>
+			<groupId>com.ocpsoft</groupId>
+			<artifactId>prettyfaces-jsf2</artifactId>
+			<version>3.3.3</version>
+		</dependency>
+		
+		
 	</dependencies>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<start-class>drizzle.Application</start-class>
+		<start-class>foundation.Application</start-class>
 		<java.version>1.8</java.version>
 	</properties>
 

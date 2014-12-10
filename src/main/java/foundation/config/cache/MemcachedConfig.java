@@ -14,11 +14,26 @@ import org.springframework.context.annotation.Configuration;
 
 import de.javakaffee.web.msm.MemcachedBackupSessionManager;
 
+/**
+ * Handles setting up Memcached such that:
+ * <p>
+ * - All nodes available for caching have their IP Address + Port specified
+ * <p>
+ * - All file types which should NOT be cached are specified.
+ * <p>
+ * - The cache manager is configured to use a ConcurrentMapCache.
+ * 
+ * @author seth.ellison
+ *
+ */
 @Configuration
 @EnableCaching
 public class MemcachedConfig
 {
 	
+	/**
+	 * Specify which cache manager implementation to use.
+	 */
 	@Bean
 	public CacheManager cacheManager() {
 		SimpleCacheManager cacheManager = new SimpleCacheManager();
@@ -26,6 +41,9 @@ public class MemcachedConfig
 		return cacheManager;
 	}
 	
+	/**
+	 * Configure embedded Tomcat server "context" to use a cache (Memcached).
+	 */
 	@Bean
 	public EmbeddedServletContainerFactory tomcat() {
 	    return new TomcatEmbeddedServletContainerFactory() {
@@ -33,7 +51,7 @@ public class MemcachedConfig
 	        @Override
 	        protected void postProcessContext(Context context) {
 	            MemcachedBackupSessionManager manager = new MemcachedBackupSessionManager();
-	            manager.setMemcachedNodes("localhost:11211"); // IP address:Port of memcached server
+	            manager.setMemcachedNodes("n1:127.0.0.1:11211"); // IP address:Port of memcached server
 	            manager.setRequestUriIgnorePattern(".*\\.(ico|png|gif|jpg|css|js)$"); // Don't attempt to cache images, css, or js.
 	            context.setManager(manager);
 	        }

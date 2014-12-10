@@ -2,26 +2,33 @@ package foundation.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import foundation.dao.entities.User;
+import com.ocpsoft.pretty.faces.annotation.URLMapping;
+
 import foundation.model.UserDAO;
 
 /**
- *  Handles the display of a web frontend via Thymeleaf.
+ *  Handles the display of a web frontend via JSF and PrettyFaces.
  */
 @Controller
+@Scope(value="singleton")
+@URLMapping(id = UserController.INDEX,
+			pattern = "/",
+			viewId = "/content/index.xhtml")
 public class UserController {
 
+	public static final String INDEX = "index";
+	
 	@Autowired
 	private UserDAO userDao;
 	
-    @RequestMapping("/")
-    String home() {
-        return "index";
-    }
-    
+	public String getHello() {
+		return "Hello from PrimeFaces and Spring Boot!";
+	}
+	
+    /*
     @RequestMapping("/create")
     String create()
     {
@@ -32,7 +39,7 @@ public class UserController {
 		userDao.save(newUser);
 		
     	return "index";
-    }
+    }*/
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(UserController.class, args);

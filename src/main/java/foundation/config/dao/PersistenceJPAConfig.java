@@ -20,6 +20,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class PersistenceJPAConfig{
  
+	/**
+	 * Configures our entity manager, telling it where to look to load classes with @Entity definitions.
+	 * <p>
+	 * Additionally, this hooks our JPA Vendor (Hibernate!) into the entity manager, and configures it.
+	 * @return A configured LocalContainerEntityManagerFactoryBean
+	 */
    @Bean
    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
       LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -33,6 +39,10 @@ public class PersistenceJPAConfig{
       return em;
    }
  
+   /**
+    * Specifies the driver, server URL, and login credentials for our MySQL database.
+    * @return A DataSource object configured for our DB.
+    */
    @Bean
    public DataSource dataSource(){
       DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -43,6 +53,10 @@ public class PersistenceJPAConfig{
       return dataSource;
    }
  
+   /**
+    * Configure the Java Persistence transaction manager to oversee our EntityManagerFactory.
+    * @return The configured transaction manager.
+    */
    @Bean
    public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
       JpaTransactionManager transactionManager = new JpaTransactionManager();
@@ -56,6 +70,14 @@ public class PersistenceJPAConfig{
       return new PersistenceExceptionTranslationPostProcessor();
    }
  
+   /**
+    * Extra configuration properties used by Hibernate.
+    * <p>
+    * create-drop = Create database tables on startup if they're missing, drop them when the server shuts down.
+    * <p>
+    * org.hibernate.dialect.MySQL5Dialect = Tell Hibernate to use the MySQL language to talk to our DB.
+    * @return
+    */
    Properties additionalProperties() {
       Properties properties = new Properties();
       properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
