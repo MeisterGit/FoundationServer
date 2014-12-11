@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
+
+	<!--
+	By convention, a view-state maps its id to a view template in the directory where the flow is located.
+	For example, the state above might render /WEB-INF/flows/enterExampleData.xhtml if the flow itself was located in the
+	/WEB-INF/flows directory.
+	 -->
+	 
+	<!-- Define a step of the flow which renders a view. -->
+	<view-state id="enterExampleData" />
+	
+	
+</flow>
+		
