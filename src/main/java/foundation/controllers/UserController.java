@@ -2,7 +2,6 @@ package foundation.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
@@ -13,10 +12,9 @@ import foundation.model.UserDAO;
  *  Handles the display of a web frontend via JSF and PrettyFaces.
  */
 @Controller
-@Scope(value="singleton")
 @URLMapping(id = UserController.INDEX,
 			pattern = "/",
-			viewId = "/content/index.xhtml")
+			viewId = "/content/index.xhtml") // This could eventually be an overview page for profiles. 
 public class UserController {
 
 	public static final String INDEX = "index";
@@ -24,8 +22,10 @@ public class UserController {
 	@Autowired
 	private UserDAO userDao;
 	
+	private String name;
+	
 	public String getHello() {
-		return "Hello from PrimeFaces and Spring Boot!";
+		return "Hello, " + name + "!";
 	}
 	
     /*

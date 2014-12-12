@@ -26,8 +26,8 @@ import de.javakaffee.web.msm.MemcachedBackupSessionManager;
  * @author seth.ellison
  *
  */
-@Configuration
-@EnableCaching
+//@Configuration
+//@EnableCaching
 public class MemcachedConfig
 {
 	
