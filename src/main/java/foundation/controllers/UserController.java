@@ -14,7 +14,7 @@ import foundation.model.UserDAO;
 @Controller
 @URLMapping(id = UserController.INDEX,
 			pattern = "/",
-			viewId = "/content/index.xhtml") // This could eventually be an overview page for profiles. 
+			viewId = "/content/index.xhtml") // Home page.
 public class UserController {
 
 	public static final String INDEX = "index";
@@ -22,7 +22,7 @@ public class UserController {
 	@Autowired
 	private UserDAO userDao;
 	
-	private String name;
+	private String name = "Seth";
 	
 	public String getHello() {
 		return "Hello, " + name + "!";

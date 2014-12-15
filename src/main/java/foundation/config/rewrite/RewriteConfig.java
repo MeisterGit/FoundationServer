@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 public class RewriteConfig //extends HttpConfigurationProvider
 {
 	/*
+	 ### Commented out because "Rewrite is active" never prints out, and the configuration seems to never work. ###
 	@Override
 	public int priority()
 	{
