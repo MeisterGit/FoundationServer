@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class PrettyConfig {
-	@Bean
+	@Bean 
 	public FilterRegistrationBean rewriteFilter() {
 		FilterRegistrationBean rewriteFilter = new FilterRegistrationBean(new RewriteFilter());
 		
