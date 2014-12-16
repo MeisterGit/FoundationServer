@@ -10,18 +10,16 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class PrettyConfig {
 	@Bean
-	public FilterRegistrationBean prettyFilter() {
-		FilterRegistrationBean prettyFilter = new FilterRegistrationBean(new RewriteFilter());
+	public FilterRegistrationBean rewriteFilter() {
+		FilterRegistrationBean rewriteFilter = new FilterRegistrationBean(new RewriteFilter());
 		
-		prettyFilter.setDispatcherTypes(DispatcherType.FORWARD,
+		rewriteFilter.setDispatcherTypes(DispatcherType.FORWARD,
 										DispatcherType.REQUEST,
 										DispatcherType.ASYNC,
 										DispatcherType.ERROR);
 		
-		prettyFilter.addUrlPatterns("/*");
-
-		//prettyFilter.addInitParameter("com.ocpsoft.pretty.BASE_PACKAGES", "foundation");
+		rewriteFilter.addUrlPatterns("/*");
 		
-		return prettyFilter;
+		return rewriteFilter;
 	}
 }
