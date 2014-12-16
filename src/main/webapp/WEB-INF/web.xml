@@ -5,6 +5,7 @@
 		id="foundation-server"
 		version="3.1">
 	
+	<!-- Have been told that web.xml and web-fragment.xml are IGNORED by Spring Boot.  -->
 	<!-- PrettyFaces: Specify which package to scan for @UrlMapping annotations -->	
 	<context-param>
 	   <param-name>com.ocpsoft.pretty.BASE_PACKAGES</param-name>
