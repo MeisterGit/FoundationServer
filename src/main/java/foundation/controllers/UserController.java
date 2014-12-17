@@ -1,7 +1,9 @@
 package foundation.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -15,6 +17,7 @@ import foundation.model.UserDAO;
  */
 @Controller
 @Scope("request")
+@PropertySource("classpath:/config/name.properties") // Load in a custom properties file.
 @URLMappings(mappings = {
 	@URLMapping(id = UserController.HOME,
 			pattern = "/",
@@ -31,7 +34,8 @@ public class UserController {
 	@Autowired
 	private UserDAO userDao;
 	
-	private String name = "Default";
+	@Value("${name}")
+	private String name;
 	
 	public String getHello() {
 		return "Hello, " + name + "!";
