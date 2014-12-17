@@ -20,11 +20,11 @@ import foundation.model.UserDAO;
 @PropertySource("classpath:/config/name.properties") // Load in a custom properties file.
 @URLMappings(mappings = {
 	@URLMapping(id = UserController.HOME,
-			pattern = "/",
-			viewId = "/content/index.xhtml"), // Default page.
+				pattern = "/",
+				viewId = "/content/index.xhtml"), // Default page.
 	@URLMapping(id = UserController.NAME,
-			pattern = "/home/#{userController.name}",
-			viewId = "/content/index.xhtml") // Home page w/ name specified.
+				pattern = "/home/#{userController.name}",
+				viewId = "/content/index.xhtml") // Home page w/ name specified.
 })
 public class UserController {
 
