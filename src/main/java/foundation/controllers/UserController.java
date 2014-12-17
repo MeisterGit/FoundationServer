@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
+import com.ocpsoft.pretty.faces.annotation.URLMappings;
 
 import foundation.model.UserDAO;
 
@@ -14,20 +15,35 @@ import foundation.model.UserDAO;
  */
 @Controller
 @Scope("request")
-@URLMapping(id = UserController.INDEX,
+@URLMappings(mappings = {
+	@URLMapping(id = UserController.HOME,
 			pattern = "/",
-			viewId = "/content/index.xhtml") // Home page.
+			viewId = "/content/index.xhtml"), // Default page.
+	@URLMapping(id = UserController.NAME,
+			pattern = "/home/#{userController.name}",
+			viewId = "/content/index.xhtml") // Home page w/ name specified.
+})
 public class UserController {
 
-	public static final String INDEX = "index";
+	public static final String HOME = "home";
+	public static final String NAME = "name";
 	
 	@Autowired
 	private UserDAO userDao;
 	
-	private String name = "Seth";
+	private String name = "Default";
 	
 	public String getHello() {
 		return "Hello, " + name + "!";
+	}
+	
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 	
     /*
