@@ -1,0 +1,7 @@
+The /classes/ folder needs specified here as a HARD LINK.
+
+The real folder exists at /target/classes
+
+This is done because PrettyFaces assumes the /classes/ folder is inside of WEB-INF/classes or WEB-INF/lib.
+
+Spring Boot w/ an embedded tomcat server doesn't have this property. If I packaged as a WAR and deployed to a static Tomcat server, PrettyFaces would work.
