@@ -99,6 +99,14 @@
 			<version>2.2.6</version>
 		</dependency>
 		
+		<!-- JSF Component Library Primefaces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>5.1</version>
+		</dependency>
+		
+		
 		<!-- PrettyFaces -->
 		 
 		 <!-- 

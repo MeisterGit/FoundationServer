@@ -24,12 +24,17 @@ import foundation.model.UserDAO;
 				viewId = "/content/index.xhtml"), // Default page.
 	@URLMapping(id = UserController.NAME,
 				pattern = "/home/#{userController.name}",
-				viewId = "/content/index.xhtml") // Home page w/ name specified.
+				viewId = "/content/index.xhtml"), // Home page w/ name specified.
+	@URLMapping(id = UserController.LEARN,
+				pattern = "/learn",
+				viewId = "/content/learn.xhtml") // This just exists for testing purposes.
 })
 public class UserController {
 
 	public static final String HOME = "home";
 	public static final String NAME = "name";
+	public static final String LEARN = "learn";
+
 	
 	@Autowired
 	private UserDAO userDao;
