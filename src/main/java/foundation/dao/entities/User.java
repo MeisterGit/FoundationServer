@@ -7,6 +7,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * This class handles mapping a User object to the users table in a MySQL database.
+ * <p>
+ * The @Entity annotation registers this as a Hibernate-mapped object. 
+ * @author seth.ellison
+ *
+ */
 @Entity
 @Table(name="users")
 public class User {

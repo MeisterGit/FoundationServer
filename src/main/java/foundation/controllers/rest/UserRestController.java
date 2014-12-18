@@ -19,7 +19,11 @@ public class UserRestController {
     	// Query DB using Key, fill object with result.
     	// Return JSON encoding of object.
     	
-    	return null;
+    	User u = new User();
+    	u.setUsername("REST");
+    	u.setId(id);
+    	u.setAge(25);
+    	return u;
     }
     
     @RequestMapping(value="/users", method=RequestMethod.POST)

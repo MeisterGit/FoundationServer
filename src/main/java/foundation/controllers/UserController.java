@@ -16,7 +16,7 @@ import foundation.model.UserDAO;
  *  Handles the display of a web frontend via JSF and PrettyFaces.
  */
 @Controller
-@Scope("request")
+@Scope("request") // Set the scope for this controller
 @PropertySource("classpath:/config/name.properties") // Load in a custom properties file.
 @URLMappings(mappings = {
 	@URLMapping(id = UserController.HOME,
@@ -34,7 +34,7 @@ public class UserController {
 	@Autowired
 	private UserDAO userDao;
 	
-	@Value("${name}")
+	@Value("${name}") // Map a value from the @PropertySource file to a variable
 	private String name;
 	
 	public String getHello() {
@@ -60,7 +60,6 @@ public class UserController {
 		
 		userDao.save(newUser);
 		
-    	return "index";
     }*/
 
     public static void main(String[] args) throws Exception {
