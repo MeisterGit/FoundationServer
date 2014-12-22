@@ -6,4 +6,11 @@
         <application>
             <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
         </application>
+        
+        <!-- Custom System Event Listeners -->
+        
+        <!-- Custom Factory Definitions -->
+        
+        <!-- Custom Lifecycle Phase-Listeners -->
+        
 </faces-config>
