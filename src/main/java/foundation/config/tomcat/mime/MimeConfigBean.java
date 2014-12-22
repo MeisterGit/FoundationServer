@@ -13,8 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @author seth.ellison
  *
  */
-@Configuration
-public class MimeConfig implements EmbeddedServletContainerCustomizer {
+public class MimeConfigBean implements EmbeddedServletContainerCustomizer {
 
 	/*
 	 * (non-Javadoc)

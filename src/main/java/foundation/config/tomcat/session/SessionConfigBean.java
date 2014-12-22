@@ -17,7 +17,7 @@ import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletCon
  * @author seth.ellison
  *
  */
-public class SessionTimeoutConfig implements EmbeddedServletContainerCustomizer {
+public class SessionConfigBean implements EmbeddedServletContainerCustomizer {
 	/*
 	 * (non-Javadoc)
 	 * @see org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer#customize(org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer)
