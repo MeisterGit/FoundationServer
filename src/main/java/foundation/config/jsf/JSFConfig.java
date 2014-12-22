@@ -1,8 +1,5 @@
 package foundation.config.jsf;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContext;
 

@@ -3,7 +3,6 @@ package foundation.config.tomcat.mime;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.MimeMappings;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * Replaces web.xml &lt;mime-mapping&gt; entries.

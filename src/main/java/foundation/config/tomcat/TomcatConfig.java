@@ -1,8 +1,12 @@
 package foundation.config.tomcat;
 
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
+import org.springframework.boot.context.embedded.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.util.HttpSessionMutexListener;
+
+import com.sun.faces.config.ConfigureListener;
 
 import foundation.config.tomcat.mime.MimeConfigBean;
 import foundation.config.tomcat.session.SessionConfigBean;
@@ -35,4 +39,13 @@ public class TomcatConfig
 	public EmbeddedServletContainerCustomizer mimeCustomizer() {
 		return new MimeConfigBean();
 	}
+	
+	/**
+	 * Sets up a listener for the HttpSessionMutex. This is one of the safest objects to synchronize on in our system.
+	 */
+	@Bean
+    public ServletListenerRegistrationBean<HttpSessionMutexListener> httpSessionMutexListener() {
+        return new ServletListenerRegistrationBean<HttpSessionMutexListener>(
+        		new HttpSessionMutexListener());
+    }
 }

@@ -7,7 +7,7 @@ import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.ocpsoft.pretty.PrettyFilter;
+import foundation.config.rewrite.filter.ExcludePatternFilter;
 
 @Configuration
 public class PrettyConfig {
@@ -19,7 +19,7 @@ public class PrettyConfig {
 	 */
 	@Bean 
 	public FilterRegistrationBean prettyFilter() {
-		FilterRegistrationBean rewriteFilter = new FilterRegistrationBean(new PrettyFilter());
+		FilterRegistrationBean rewriteFilter = new FilterRegistrationBean(new ExcludePatternFilter());
 		
 		// Filter Forward, Request, Asyc, and Error-related requests. 
 		rewriteFilter.setDispatcherTypes(DispatcherType.FORWARD,
