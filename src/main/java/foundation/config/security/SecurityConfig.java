@@ -15,9 +15,9 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
-import foundation.config.security.authentication.FdlicAuthenticationProvider;
-import foundation.config.security.authentication.FdlicAuthenticationSuccessHandler;
-import foundation.config.security.services.FdlicUserDetailsService;
+import foundation.config.security.authentication.CustomAuthenticationProvider;
+import foundation.config.security.authentication.CustomAuthenticationSuccessHandler;
+import foundation.config.security.services.CustomUserDetailsService;
 
 /**
  * Java Configuration for our Spring Security package.
@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     	
     	// In-Memory Authentication DB.
         auth
-        	.authenticationProvider(this.fdlicAuthenticationProvider());
+        	.authenticationProvider(this.customAuthenticationProvider());
     }
     
 	/**
@@ -77,12 +77,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     	
     	http
 	        .authorizeRequests()
-	        	.antMatchers("/resources/**").permitAll() // Allows anyone to access a URL that begins with /resources/ since this is where our static resources live. 
+	        	.antMatchers("/resources/**", "/").permitAll() // Allows anyone to access a URL that begins with /resources/ since this is where our static resources live. 
 	            .anyRequest().authenticated() // Require authentication for any URL (below, an exception is made.)
 	            .and()
 	        .formLogin()
 	            .loginPage("/login") // The specific location of the login page. This is what PrettyFaces rewrites /login to behind the scenes.
-	            .successHandler(new FdlicAuthenticationSuccessHandler())
+	            .successHandler(new CustomAuthenticationSuccessHandler())
 	            .permitAll(); // We must grant all users (i.e. unauthenticated users) access to our log in page. The formLogin().permitAll() method allows granting access to all users for all URLs associated with form based log in.
     }
     
@@ -108,19 +108,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
     // Handles authenticating users. Wires up our custom authentication provider to override the Spring Security default, and links up the user detail service.
     @Bean
-    public AuthenticationProvider fdlicAuthenticationProvider() {
-    	FdlicAuthenticationProvider provider = new FdlicAuthenticationProvider();
+    public AuthenticationProvider customAuthenticationProvider() {
+    	CustomAuthenticationProvider provider = new CustomAuthenticationProvider();
     	
-    	provider.setUserDetailsService(this.fdlicUserDetailsService());
+    	provider.setUserDetailsService(this.customUserDetailsService());
     	
     	return provider;
     }
     
     // Used ONLY for providing use data. This does NOT authenticate anything.
     @Bean
-    public UserDetailsService fdlicUserDetailsService() {
+    public UserDetailsService customUserDetailsService() {
     	
-    	UserDetailsService service = new FdlicUserDetailsService();
+    	UserDetailsService service = new CustomUserDetailsService();
     	
     	return service;
     }
