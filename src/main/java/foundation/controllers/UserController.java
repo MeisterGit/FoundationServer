@@ -35,7 +35,10 @@ import foundation.model.UserDAO;
 				viewId = "/content/index.xhtml"), // Home page w/ name specified.
 	@URLMapping(id = UserController.LEARN,
 				pattern = "/learn",
-				viewId = "/content/learn.xhtml") // This just exists for testing purposes.
+				viewId = "/content/learn.xhtml"), // This just exists for testing purposes.
+	@URLMapping(id = UserController.LOGIN,
+				pattern = "/login",
+				viewId = "/content/login.xhtml") // This just exists for testing purposes.
 })
 public class UserController {
 
@@ -43,6 +46,7 @@ public class UserController {
 	public static final String HOME = "home";
 	public static final String NAME = "name";
 	public static final String LEARN = "learn";
+	public static final String LOGIN = "login";
 
 	// A custom Data Access Object configured to access the Database through Hibernate.
 	@Autowired

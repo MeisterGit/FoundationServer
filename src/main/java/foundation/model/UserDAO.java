@@ -5,7 +5,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import foundation.dao.entities.User;
 
-@Transactional
 public interface UserDAO extends CrudRepository<User, Long>
 {
 	/**

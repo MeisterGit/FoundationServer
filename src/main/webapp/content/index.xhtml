@@ -1,5 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:jsf="http://xmlns.jcp.org/jsf">
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:custom="http://www.blah.com/components/html">
       
 	<head jsf:id="head">
 		<meta charset="utf-8"/>
@@ -44,7 +45,7 @@
 	    <div class="jumbotron">
 	      <div class="container">
 	        <h1>#{empty userController.hello ? 'Empty!' : userController.hello}</h1>
-	        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+	        <custom:paragraph value="This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique." />
 	        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 	      </div>
 	    </div>
