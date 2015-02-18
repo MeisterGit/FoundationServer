@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -77,7 +78,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     	
     	http
 	        .authorizeRequests()
-	        	.antMatchers("/resources/**", "/").permitAll() // Allows anyone to access a URL that begins with /resources/ since this is where our static resources live. 
+	        	.antMatchers("/resources/**", "/javax.faces.resource/**", "/").permitAll() // Allows anyone to access a URL that begins with /resources/ since this is where our static resources live. 
 	            .anyRequest().authenticated() // Require authentication for any URL (below, an exception is made.)
 	            .and()
 	        .formLogin()

@@ -26,19 +26,19 @@ public class TomcatConfig
 	 * Sets up our custom Tomcat Session settings. (Timeout to 60m, etc...)
 	 * @return
 	 */
-	@Bean
-	public EmbeddedServletContainerCustomizer sessionCustomizer() {
-		return new SessionConfigBean();
-	}
+	//@Bean
+	//public EmbeddedServletContainerCustomizer sessionCustomizer() {
+	//	return new SessionConfigBean();
+	//}
 	
 	/**
 	 * Sets up Tomcat to serve content across various MIME types. (Fonts, XML, Images, etc...)
 	 * @return
 	 */
-	@Bean
-	public EmbeddedServletContainerCustomizer mimeCustomizer() {
-		return new MimeConfigBean();
-	}
+	//@Bean
+	//public EmbeddedServletContainerCustomizer mimeCustomizer() {
+	//	return new MimeConfigBean();
+	//}
 	
 	/**
 	 * Sets up a listener for the HttpSessionMutex. This is one of the safest objects to synchronize on in our system.
