@@ -35,8 +35,7 @@ public class UIParagraph extends UIComponentBase {
 			if (this.styleClass != null) {
 				writer.writeAttribute("class", this.styleClass, null);
 			}
-				
-			
+
 			writer.writeText(this.value, null);
 		}
 	}

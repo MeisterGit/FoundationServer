@@ -27,7 +27,7 @@ public class JSFConfig implements ServletContextAware{
     @Bean
     public ServletRegistrationBean facesServletRegistration() {
     	
-    	String[] urlPatterns = {"*.xhtml", "/faces/*"};
+    	String[] urlPatterns = {"*.xhtml"};
     	
         ServletRegistrationBean registration = new ServletRegistrationBean(new FacesServlet(), urlPatterns); // Map to any URL ending in .xhtml or starting with /faces/*
         registration.setName("Faces Servlet");
