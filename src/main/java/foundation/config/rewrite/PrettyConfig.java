@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 import foundation.config.rewrite.filter.ExcludePatternFilter;
 
-@Configuration
+//@Configuration
 public class PrettyConfig {
 	
 	/**

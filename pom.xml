@@ -32,6 +32,7 @@
 		    <scope>provided</scope>
 		</dependency>
 
+		<!-- JPA and JDBC work together to provide a foundation for Hibernate to run upon. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -40,11 +41,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>-->
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -121,7 +117,7 @@
 		
 		<!-- PrettyFaces -->
 		 
-		 <!-- 
+		 <!-- Rewrite is a more feature-rich and newer replacement for prettyfaces. That said, for now, I'm sticking with Pretty to help smooth the porting process. We can update to this at a later date if needed.   
 		<dependency>
 		    <groupId>org.ocpsoft.rewrite</groupId>
 		    <artifactId>rewrite-servlet</artifactId>
